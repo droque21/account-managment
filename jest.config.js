@@ -1,6 +1,7 @@
 
 module.exports = {
   clearMocks: true,
+  verbose: true,
   coverageDirectory: "coverage",
   testEnvironment: "jsdom",
   transform: {
