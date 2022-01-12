@@ -1,8 +1,9 @@
 .user-name_input {
 	width: 100%;
 	display: flex;
+	align-items: center;
 	justify-content: space-between;
-	padding: 4px 8px;
+	padding: 6px 16px;
 	background-color: #2a2f32;
 	border-bottom: 1px solid #424c50;
 	transition: border-color 0.25s;
@@ -10,23 +11,33 @@
 .user-name_input > input {
 	background-color: inherit;
 	color: inherit;
-	width: 90%;
-	height: 30px;
+	flex: 1;
+	height: 35px;
 	font-size: 18px;
 	border: none;
 	outline: none;
 }
 
 .user-name_input > button {
-	width: 90%;
-	width: 30px;
+	width: 35px;
+	height: 25px;
+	background-color: #00c6af;
+	border: none;
+	border-radius: 4px;
+	margin-left: 8px;
+	transition: background-color 0.3s;
+	cursor: pointer;
+}
+
+.user-name_input > button:hover {
+	background-color: #0fe4cb;
 }
 
 .user-name_input:focus-within {
 	border-bottom: 1px solid #a09c9c;
 }
 
-/* USER */
+/* USER-bar */
 .users_container {
 	display: grid;
 	grid-template-columns: 1;
@@ -40,8 +51,87 @@
 	cursor: pointer;
 	transition: background-color 0.2s;
 	filter: drop-shadow(0px 1px 2px #9c9c9c85);
+	display: flex;
+	align-items: center;
 }
 
 .user-bar:hover {
 	background-color: #393e41;
+}
+
+.user-bar > a {
+	flex: 1;
+	text-decoration: none;
+	color: white;
+}
+
+.user-bar > button {
+	background-color: #dd5252;
+	border: none;
+	width: 25px;
+	height: 25px;
+	border-radius: 4px;
+	cursor: pointer;
+	transition: all 0.3s;
+}
+
+.user-bar > button:hover {
+	background-color: #fd6161;
+}
+
+/* USER */
+
+.userName-bar {
+	text-align: center;
+	background-color: #2d3134;
+	padding: 8px 12px;
+}
+
+.user-income {
+	background-color: #00c6af;
+	color: black;
+	height: 120px;
+	text-align: center;
+	padding: 12px;
+}
+
+.income {
+	font-size: 18px;
+}
+.income > input {
+	font-size: 18px;
+	background-color: transparent;
+	border: 1px #00c6af solid;
+	outline: none;
+	transition: all 0.2s;
+	border-radius: 2px;
+	width: 65px;
+}
+.income > input:hover,
+.income > input:focus {
+	border-color: rgb(231, 231, 115);
+}
+.user-option {
+	padding: 8px;
+}
+.navigation_user {
+	display: flex;
+	list-style: none;
+}
+.navigation_user > a {
+	width: 50%;
+	height: 32px;
+	line-height: 32px;
+	text-align: center;
+	background-color: #2d3134;
+	transition: all 0.3s;
+	cursor: pointer;
+	text-decoration: none;
+	color: white;
+}
+.navigation_user > a:hover {
+	background-color: #33383b;
+}
+.navigation_user > a.active {
+	background-color: #131c21;
 }

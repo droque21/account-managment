@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { UserBar } from '../components/UserBar'
 import { createUser } from '../helpers/user'
 
@@ -6,6 +6,12 @@ export const Home = () => {
   const [userNameValue, setUserNameValue] = useState('')
   const [users, setUsers] = useState([])
   const input = useRef(null)
+
+  useEffect(() => {
+    const users = JSON.parse(localStorage.getItem('users'));
+    const usersWithData = users.map(u => JSON.parse(localStorage.getItem(`user-${u}`)))
+    setUsers(usersWithData)
+  }, [])
 
   const onChangeValue = (e) => {
     setUserNameValue(e.target.value)
@@ -24,10 +30,17 @@ export const Home = () => {
   }
 
   const validateAndAddUserToCurrentUsers = (users, userName) => {
-    if(users.some(user => user.name === userName.toUpperCase())) {
+    const onlyUsersName = users.map(u => u.name)
+    const userNameUpperCase = userName.toUpperCase()
+
+    if(onlyUsersName.includes(userNameUpperCase)) {
       return users
     }
-    return [...users, createUser(userName)]
+    const newUser = createUser(userName);
+
+    localStorage.setItem('users', JSON.stringify([...onlyUsersName, userNameUpperCase]));
+    localStorage.setItem(`user-${newUser.name}`, JSON.stringify(newUser));
+    return [...users, newUser]
   }
 
   const usersToRender = users.map(user => <UserBar key={user.name} user={user} />)
