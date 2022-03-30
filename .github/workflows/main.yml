@@ -17,10 +17,6 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   build:
-    steps:
-    - name: Echo has been pushed
-      run: echo Has been pushed
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
@@ -37,3 +33,6 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+      - name: Echo has been pushed
+        run: echo Has been pushed
+    # The type of runner that the job will run on
